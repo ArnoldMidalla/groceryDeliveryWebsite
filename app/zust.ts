@@ -1,13 +1,5 @@
 import { create } from "zustand";
 
-interface CounterStore {
-  type: string;
-  setAll: () => void;
-  setVegetables: () => void;
-  setDesserts: () => void;
-  setDrinks: () => void;
-}
-
 export const useStore = create<CounterStore>((set) => ({
   type: "All", // initial state
 
@@ -16,11 +8,6 @@ export const useStore = create<CounterStore>((set) => ({
   setDesserts: () => set(() => ({ type: "Desserts" })),
   setDrinks: () => set(() => ({ type: "Drinks" })),
 }));
-
-interface HeartStore {
-  heart: number[];
-  toggleHeart: (id: number) => void;
-}
 
 export const useHeart = create<HeartStore>((set) => ({
   heart: [],
@@ -31,11 +18,6 @@ export const useHeart = create<HeartStore>((set) => ({
         : [...state.heart, id], // add
     })),
 }));
-
-interface CartStore {
-  cart: number[];
-  toggleCart: (id: number) => void;
-}
 
 export const useCart = create<CartStore>((set) => ({
   cart: [],
